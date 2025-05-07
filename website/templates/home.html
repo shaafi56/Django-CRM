@@ -7,14 +7,13 @@
   <thead class="table-dark">
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Name</th>
+      <th scope="col">Name<i class="fa fa-sort"></th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
       <th scope="col">Address</th>
-      <th scope="col">City</th>
+      <th scope="col">City<i class="fa fa-sort"></th>
       <th scope="col">State</th>
-      <th scope="col">Zipcode</th>
-      <th scope="col">Created At</th>
+      <th scope="col">Actions</th>
       
     </tr>
   </thead>
@@ -28,12 +27,18 @@
         <td>{{ record.address }}</td>
         <td>{{ record.city }}</td>
         <td>{{ record.state }}</td>
-        <td>{{ record.zipcode }}</td>
-        <td>{{ record.created_at }}</td>
+        <td class="text-center align-middle">
+                        <div class="btn-group align-top">
+                            <button class="btn btn-sm btn-grey btn-outline-dark badge" type="button" ><a href="{% url 'record' record.id %}"><i class="fa fa-eye"></a></i></button>
+                            <button class="btn btn-sm btn-secondary btn-outline-dark badge" type="button" data-toggle="modal" data-target="#user-form-modal">Edit</button>
+                            <button class="btn btn-sm btn-grey btn-outline-dark badge" type="button" ><a href="{% url 'delete_record' record.id %}"><i class="fa fa-trash"></a></i></button>
+                        </div>
+                      </td>
+
         
       </tr>
     {% endfor %}
-    {% if not records %}
+    {% if not records %}Delete
       <tr>
         <td colspan="9" class="text-center">No records found.</td>
       </tr>
