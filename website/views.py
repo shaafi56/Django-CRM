@@ -3,10 +3,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from website.models import Record
-from .forms import SignUpForm
+from .forms import AddRecordForm, SignUpForm
 
 # Create your views here.
 def home(request):
+    form = AddRecordForm()
     records = Record.objects.all()
 
     if request.method == 'POST':
@@ -22,7 +23,7 @@ def home(request):
             messages.error(request, 'Invalid username or password.')
             return redirect('home')
     else:
-        return render(request, 'home.html', {'records': records})
+        return render(request, 'home.html', {'form': form,'records': records})
 
 #logout user
 def logout_user(request):
@@ -57,18 +58,8 @@ def customer_record(request, pk):
         messages.error(request, 'You must be logged in to view this page.')
         return redirect('home')
     
-# def delete_customer(request, pk):
-#     if request.user.is_authenticated:
-#         #look up the record by primary key
-#         delete_record = Record.objects.get(id=pk)
-#         delete_record.delete()
-#         messages.success(request, 'Record deleted successfully!')
-#         return redirect('home')
-#     else:
-#         messages.error(request, 'You must be logged in to delete a record.')
-#         return redirect('home')
-    
 def delete_record(request, pk):
+    
 	if request.user.is_authenticated:
 		delete_it = Record.objects.get(id=pk)
 		delete_it.delete()
@@ -77,3 +68,16 @@ def delete_record(request, pk):
 	else:
 		messages.success(request, "You Must Be Logged In To Do That...")
 		return redirect('home')
+     
+def add_record(request):
+    form = AddRecordForm(request.POST or None)
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Record Added...")
+                return redirect('home')
+        return redirect('home')
+    else:
+        messages.success(request, "You Must Be Logged In...")
+        return redirect('home')
