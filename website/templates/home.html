@@ -7,7 +7,7 @@
 
     <div class="row flex-lg-nowrap">
     <div class="text-end mb-3">
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#userModal" onclick="openAddModal()">Add User</button>
+      <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#userModal" onclick="openAddModal()">Add User</button>
     </div>  
     </div>
 <!-- Table content -->
@@ -38,8 +38,8 @@
         <td class="text-center align-middle">
                         <div class="btn-group align-top">
                             <button class="btn btn-sm btn-grey btn-outline-dark badge" type="button" ><a href="{% url 'record' record.id %}"><i class="fa fa-eye"></a></i></button>
-                            <button class="btn btn-sm btn-secondary btn-outline-dark badge" type="button" data-toggle="modal" data-target="#user-form-modal">Edit</button>
-                            <button class="btn btn-sm btn-grey btn-outline-dark badge" type="button" ><a href="{% url 'delete_record' record.id %}"><i class="fa fa-trash"></a></i></button>
+                            <button class="btn btn-sm btn- btn-outline-success badge" type="button"><a href="{% url 'update_record' record.id %}"><i class="fa fa-edit"></a></i></button>
+                            <button class="btn btn-sm btn-white btn-outline-dark badge" type="button" ><a href="{% url 'delete_record' record.id %}"><i class="fa fa-trash" style="color: #e60a0a;"></a></i></button>
                         </div>
                       </td>
 
@@ -54,64 +54,7 @@
   </tbody>
 </table>
 
-  <!-- Add User or Add record -->
-  <!--
-  <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <form id="userForm" class="modal-content" action="{% url 'add_record' %}" method="POST">
-      {% csrf_token %}
-        <div class="modal-header">
-          <h5 class="modal-title" id="userModalLabel">Add User</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <input type="hidden" id="userId">
-          <div class="mb-3">
-                <label for="firstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstName">
-              </div>
-              <div class="mb-3">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lastName">
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email">
-              </div>
-            
-
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="city" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="city">
-                </div>
-              <div class="col-md-6 mb-3">
-                  <label for="city" class="form-label">Phone</label>
-                  <input type="text" class="form-control" id="city">
-              </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="city" class="form-label">City</label>
-                  <input type="text" class="form-control" id="city">
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="state" class="form-label">State</label>
-                  <input type="text" class="form-control" id="state">
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="zipcode" class="form-label">Zipcode</label>
-                  <input type="text" class="form-control" id="zipcode">
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary w-100">Submit</button>
-        </div>
-        
-      </form>
-    </div>
-  -->
-  <!-- Add User Modal -->
+  <!-- Add user model -->
 <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <form class="modal-content" method="POST" action="{% url 'add_record' %}">
@@ -163,9 +106,14 @@
       </div>
     </form>
   </div>
+
+
+
 </div>
 
 
+
+</div>
 
 {% else %}
 
