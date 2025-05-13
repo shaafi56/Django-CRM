@@ -1,4 +1,5 @@
 **Overview**
+
 This Django CRUD (Create, Read, Update, Delete) application is a complete user management system that allows you to:
 
 Create new user records
@@ -10,6 +11,7 @@ Update existing user information
 Delete records from the system
 
 **Key Features**
+
 1. User Management
 Add new users with comprehensive details including:
 
@@ -28,6 +30,7 @@ Edit existing user information
 Remove users from the system
 
 2. Authentication System
+   
 Secure user login/logout functionality
 
 Registration system for new administrators
@@ -35,6 +38,7 @@ Registration system for new administrators
 Protected routes that require authentication
 
 3. Modern Interface
+   
 Responsive design that works on all devices
 
 Bootstrap-styled components for professional appearance
@@ -43,34 +47,10 @@ Modal dialogs for adding/editing users
 
 Action buttons for each record (View, Edit, Delete)
 
-Technical Implementation
-Backend (Django)
-Models: Record model storing all user information
 
-Views: Handles all CRUD operations and authentication
 
-Forms: AddRecordForm for data validation
+**Installation**
 
-URL Routing: Clean URL patterns for each operation
-
-Frontend
-Bootstrap 5 for styling and layout
-
-JavaScript for interactive elements
-
-Responsive table display
-
-Modal forms for adding/editing records
-
-Getting Started
-Prerequisites
-Python 3.x
-
-Django 4.x
-
-Bootstrap 5 (included via CDN)
-
-Installation
 Clone the repository
 
 Create and activate a virtual environment
